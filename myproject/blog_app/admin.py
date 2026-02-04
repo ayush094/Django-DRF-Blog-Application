@@ -11,6 +11,7 @@ class UserSubscriptionInline(admin.TabularInline):
     readonly_fields = ['created_at']
     show_change_link = True
 
+
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
     # Attach the subscription table to the bottom of the user edit page
@@ -29,7 +30,7 @@ class CustomUserAdmin(UserAdmin):
             'fields': ('role',),
         }),
     )
-
+    
     # 3. SETTING UP THE MAIN LIST VIEW
     list_display = (
         'id',
