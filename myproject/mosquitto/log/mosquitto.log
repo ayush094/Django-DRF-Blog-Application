@@ -937,3 +937,145 @@
 1768217594: Saving in-memory database to /mosquitto/data//mosquitto.db.
 1768219343: Saving in-memory database to /mosquitto/data//mosquitto.db.
 1768221091: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1770180938: mosquitto version 2.1.0 starting
+1770180938: Config loaded from /mosquitto/config/mosquitto.conf.
+1770180938: Bridge support available.
+1770180938: Persistence support available.
+1770180938: TLS support available.
+1770180938: TLS-PSK support available.
+1770180938: Websockets support available.
+1770180938: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1770180938: Warning: File /mosquitto/config/passwordfile owner is not mosquitto. Future versions will refuse to load this file.To fix this, use `chown mosquitto /mosquitto/config/passwordfile`.
+
+1770180938: Warning: File /mosquitto/config/passwordfile group is not mosquitto. Future versions will refuse to load this file.
+
+1770180938: Plugin builtin-security has registered to receive 'basic-auth' events.
+1770180938: Opening ipv4 listen socket on port 1883.
+1770180938: Opening ipv6 listen socket on port 1883.
+1770180938: mosquitto version 2.1.0 running
+1770180947: New connection from 172.21.0.6:33877 on port 1883.
+1770180947: New client connected from 172.21.0.6:33877 as auto-9D8FA9AC-96BE-E3F8-C7B3-09D5046E7BA4 (p4, c1, k60, u'admin').
+1770180948: Client auto-9D8FA9AC-96BE-E3F8-C7B3-09D5046E7BA4 closed its connection.
+1770180954: New connection from 172.21.0.8:54609 on port 1883.
+1770180954: New client connected from 172.21.0.8:54609 as auto-C8BBBA52-E4F9-2D6E-6F6B-1612A35C9685 (p4, c1, k60, u'admin').
+1770180954: Client auto-C8BBBA52-E4F9-2D6E-6F6B-1612A35C9685 closed its connection.
+1770180960: New connection from 172.21.0.6:38885 on port 1883.
+1770180960: New client connected from 172.21.0.6:38885 as auto-BE5E5EB0-2241-8E0B-A4E3-DBDD2B41C2D8 (p4, c1, k60, u'admin').
+1770180960: Client auto-BE5E5EB0-2241-8E0B-A4E3-DBDD2B41C2D8 closed its connection.
+1770180963: New connection from 172.21.0.5:34579 on port 1883.
+1770180963: New client connected from 172.21.0.5:34579 as auto-E068A3A1-C549-198F-86E0-4690ECEFCBD7 (p4, c1, k60, u'admin').
+1770180963: Client auto-E068A3A1-C549-198F-86E0-4690ECEFCBD7 closed its connection.
+1770180967: mosquitto version 2.1.0 terminating
+1770180967: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1770183709: mosquitto version 2.1.0 starting
+1770183709: Config loaded from /mosquitto/config/mosquitto.conf.
+1770183709: Bridge support available.
+1770183709: Persistence support available.
+1770183709: TLS support available.
+1770183709: TLS-PSK support available.
+1770183709: Websockets support available.
+1770183709: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1770183709: Warning: File /mosquitto/config/passwordfile owner is not mosquitto. Future versions will refuse to load this file.To fix this, use `chown mosquitto /mosquitto/config/passwordfile`.
+
+1770183709: Warning: File /mosquitto/config/passwordfile group is not mosquitto. Future versions will refuse to load this file.
+
+1770183709: Plugin builtin-security has registered to receive 'basic-auth' events.
+1770183709: Opening ipv4 listen socket on port 1883.
+1770183709: Opening ipv6 listen socket on port 1883.
+1770183709: mosquitto version 2.1.0 running
+1770183714: New connection from 172.21.0.6:40957 on port 1883.
+1770183714: New client connected from 172.21.0.6:40957 as auto-969DB474-7945-51E5-50F7-DC3EA7FACA46 (p4, c1, k60, u'admin').
+1770183714: Client auto-969DB474-7945-51E5-50F7-DC3EA7FACA46 closed its connection.
+1770183718: New connection from 172.21.0.6:45117 on port 1883.
+1770183718: New client connected from 172.21.0.6:45117 as auto-C24A4868-CC0B-D508-6EE2-8A01A204975F (p4, c1, k60, u'admin').
+1770183718: Client auto-C24A4868-CC0B-D508-6EE2-8A01A204975F closed its connection.
+1770183721: New connection from 172.21.0.5:59461 on port 1883.
+1770183721: New client connected from 172.21.0.5:59461 as auto-33198629-67B5-A218-4EE1-D13B5C01C3F2 (p4, c1, k60, u'admin').
+1770183721: Client auto-33198629-67B5-A218-4EE1-D13B5C01C3F2 closed its connection.
+1770183724: New connection from 172.21.0.6:46515 on port 1883.
+1770183724: New client connected from 172.21.0.6:46515 as auto-020DD118-F218-A94A-6797-1FE85955CD9B (p4, c1, k60, u'admin').
+1770183724: Client auto-020DD118-F218-A94A-6797-1FE85955CD9B closed its connection.
+1770183728: New connection from 172.21.0.5:40055 on port 1883.
+1770183728: New client connected from 172.21.0.5:40055 as auto-92145DBE-ECE6-2E3C-A876-B32C474A68BC (p4, c1, k60, u'admin').
+1770183728: Client auto-92145DBE-ECE6-2E3C-A876-B32C474A68BC closed its connection.
+1770183731: New connection from 172.21.0.5:56267 on port 1883.
+1770183731: New client connected from 172.21.0.5:56267 as auto-BBE104EB-380D-96EE-FCC2-BE668CB3433D (p4, c1, k60, u'admin').
+1770183731: Client auto-BBE104EB-380D-96EE-FCC2-BE668CB3433D closed its connection.
+1770183736: New connection from 172.21.0.5:58509 on port 1883.
+1770183736: New client connected from 172.21.0.5:58509 as auto-2DFC30A4-CEFB-53B0-29D6-87584F31E54D (p4, c1, k60, u'admin').
+1770183736: Client auto-2DFC30A4-CEFB-53B0-29D6-87584F31E54D closed its connection.
+1770183745: New connection from 172.21.0.5:55447 on port 1883.
+1770183745: New client connected from 172.21.0.5:55447 as auto-513F2A6B-5BC6-DFF9-676C-D92630B5BC4F (p4, c1, k60, u'admin').
+1770183745: Client auto-513F2A6B-5BC6-DFF9-676C-D92630B5BC4F closed its connection.
+1770183759: New connection from 172.21.0.5:55199 on port 1883.
+1770183759: New client connected from 172.21.0.5:55199 as auto-2998CC81-CA85-41F6-697E-C0AE76534D41 (p4, c1, k60, u'admin').
+1770183759: Client auto-2998CC81-CA85-41F6-697E-C0AE76534D41 closed its connection.
+1770183787: New connection from 172.21.0.5:56101 on port 1883.
+1770183787: New client connected from 172.21.0.5:56101 as auto-709E188D-0951-910B-7BD5-29DB3357E2D5 (p4, c1, k60, u'admin').
+1770183787: Client auto-709E188D-0951-910B-7BD5-29DB3357E2D5 closed its connection.
+1770183840: New connection from 172.21.0.5:45981 on port 1883.
+1770183840: New client connected from 172.21.0.5:45981 as auto-BA175803-8553-8F0F-A462-A287EA797C16 (p4, c1, k60, u'admin').
+1770183840: Client auto-BA175803-8553-8F0F-A462-A287EA797C16 closed its connection.
+1770183902: New connection from 172.21.0.5:58137 on port 1883.
+1770183902: New client connected from 172.21.0.5:58137 as auto-7C653281-23B5-0785-21B1-0C9B44C8D057 (p4, c1, k60, u'admin').
+1770183902: Client auto-7C653281-23B5-0785-21B1-0C9B44C8D057 closed its connection.
+1770183965: New connection from 172.21.0.5:57047 on port 1883.
+1770183965: New client connected from 172.21.0.5:57047 as auto-D4BAD0B9-D151-BA83-C68B-05D144DDAA0B (p4, c1, k60, u'admin').
+1770183965: Client auto-D4BAD0B9-D151-BA83-C68B-05D144DDAA0B closed its connection.
+1770184026: mosquitto version 2.1.0 terminating
+1770184026: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1770184039: mosquitto version 2.1.0 starting
+1770184039: Config loaded from /mosquitto/config/mosquitto.conf.
+1770184039: Bridge support available.
+1770184039: Persistence support available.
+1770184039: TLS support available.
+1770184039: TLS-PSK support available.
+1770184039: Websockets support available.
+1770184039: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1770184039: Warning: File /mosquitto/config/passwordfile owner is not mosquitto. Future versions will refuse to load this file.To fix this, use `chown mosquitto /mosquitto/config/passwordfile`.
+
+1770184039: Warning: File /mosquitto/config/passwordfile group is not mosquitto. Future versions will refuse to load this file.
+
+1770184039: Plugin builtin-security has registered to receive 'basic-auth' events.
+1770184039: Opening ipv4 listen socket on port 1883.
+1770184039: Opening ipv6 listen socket on port 1883.
+1770184039: mosquitto version 2.1.0 running
+1770184046: New connection from 172.21.0.5:56869 on port 1883.
+1770184046: New client connected from 172.21.0.5:56869 as auto-A7C14244-E072-C942-279E-7A2B86515364 (p4, c1, k60, u'admin').
+1770184047: Client auto-A7C14244-E072-C942-279E-7A2B86515364 closed its connection.
+1770184051: New connection from 172.21.0.6:48331 on port 1883.
+1770184051: New client connected from 172.21.0.6:48331 as auto-22513C79-41F1-2AEE-B90C-891923E24C36 (p4, c1, k60, u'admin').
+1770184051: Client auto-22513C79-41F1-2AEE-B90C-891923E24C36 closed its connection.
+1770184054: New connection from 172.21.0.7:41755 on port 1883.
+1770184054: New client connected from 172.21.0.7:41755 as auto-3CF71C40-032A-BB63-4E06-ED285D18E93E (p4, c1, k60, u'admin').
+1770184055: Client auto-3CF71C40-032A-BB63-4E06-ED285D18E93E closed its connection.
+1770184061: New connection from 172.21.0.6:46993 on port 1883.
+1770184061: New client connected from 172.21.0.6:46993 as auto-0F7FDCFE-728C-FE16-7B85-6CAB6A88DBD8 (p4, c1, k60, u'admin').
+1770184061: Client auto-0F7FDCFE-728C-FE16-7B85-6CAB6A88DBD8 closed its connection.
+1770184065: New connection from 172.21.0.5:32905 on port 1883.
+1770184065: New client connected from 172.21.0.5:32905 as auto-6B9F5774-BC39-5D61-0A53-4296B9338ECA (p4, c1, k60, u'admin').
+1770184065: Client auto-6B9F5774-BC39-5D61-0A53-4296B9338ECA closed its connection.
+1770184070: New connection from 172.21.0.5:49043 on port 1883.
+1770184070: New client connected from 172.21.0.5:49043 as auto-F1E1C5DE-AC48-AA26-6670-0ABD8FAAD1DD (p4, c1, k60, u'admin').
+1770184070: Client auto-F1E1C5DE-AC48-AA26-6670-0ABD8FAAD1DD closed its connection.
+1770184076: New connection from 172.21.0.5:44427 on port 1883.
+1770184076: New client connected from 172.21.0.5:44427 as auto-DF4A5263-795A-C381-5790-258577A2CBB2 (p4, c1, k60, u'admin').
+1770184076: Client auto-DF4A5263-795A-C381-5790-258577A2CBB2 closed its connection.
+1770184084: New connection from 172.21.0.5:41199 on port 1883.
+1770184084: New client connected from 172.21.0.5:41199 as auto-6857D9D4-AB42-4839-313D-EDB422073311 (p4, c1, k60, u'admin').
+1770184085: Client auto-6857D9D4-AB42-4839-313D-EDB422073311 closed its connection.
+1770184103: New connection from 172.21.0.5:37851 on port 1883.
+1770184103: New client connected from 172.21.0.5:37851 as auto-A5EF5BCE-1F2E-AB4F-2A06-825FDFFED69A (p4, c1, k60, u'admin').
+1770184103: Client auto-A5EF5BCE-1F2E-AB4F-2A06-825FDFFED69A closed its connection.
+1770184131: New connection from 172.21.0.5:53351 on port 1883.
+1770184131: New client connected from 172.21.0.5:53351 as auto-0C821889-DBA2-C066-2383-AAAB718C9809 (p4, c1, k60, u'admin').
+1770184131: Client auto-0C821889-DBA2-C066-2383-AAAB718C9809 closed its connection.
+1770184184: New connection from 172.21.0.8:46353 on port 1883.
+1770184184: New client connected from 172.21.0.8:46353 as auto-F29343EA-1FBC-7A8A-586F-8F01AB82248F (p4, c1, k60, u'admin').
+1770185839: Saving in-memory database to /mosquitto/data//mosquitto.db.
