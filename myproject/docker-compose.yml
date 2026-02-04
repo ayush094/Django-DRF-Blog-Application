@@ -1,0 +1,146 @@
+version: "3.9"
+
+services:
+
+  db:
+    container_name: myproject_db
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_DB: myproject
+      POSTGRES_USER: myprojectuser
+      POSTGRES_PASSWORD: myproject@123
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    container_name: myproject_redis
+    image: redis:7
+    restart: always
+    ports:
+      - "6379:6379"
+
+  mqtt:
+    container_name: myproject_mqtt
+    image: eclipse-mosquitto
+    restart: always
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+
+
+  web:
+    container_name: myproject_web
+    build: .
+    restart: always
+    entrypoint: ["/app/entrypoint.sh"]
+    command: [
+      "sh", "-c",
+      "python manage.py migrate &&
+       python manage.py runserver 0.0.0.0:8000"
+    ]
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_started
+      redis:
+        condition: service_started
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: myprojectuser
+      POSTGRES_PASSWORD: myproject@123
+      POSTGRES_DB: myproject
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+
+  celery:
+    container_name: myproject_celery
+    build: .
+    restart: always
+    entrypoint: ["/app/entrypoint.sh"]
+    command: [
+      "sh", "-c",
+      "python manage.py migrate &&
+       celery -A myproject worker --loglevel=info"
+    ]
+    volumes:
+      - .:/app
+    depends_on:
+      web:
+        condition: service_started
+      db:
+        condition: service_started
+      redis:
+        condition: service_started
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: myprojectuser
+      POSTGRES_PASSWORD: myproject@123
+      POSTGRES_DB: myproject
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+
+  celery_beat:
+    container_name: myproject_celery_beat
+    build: .
+    restart: always
+    entrypoint: ["/app/entrypoint.sh"]
+    command: [
+      "sh", "-c",
+      "python manage.py migrate &&
+       celery -A myproject beat --loglevel=info"
+    ]
+    volumes:
+      - .:/app
+    depends_on:
+      web:
+        condition: service_started
+      db:
+        condition: service_started
+      redis:
+        condition: service_started
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: myprojectuser
+      POSTGRES_PASSWORD: myproject@123
+      POSTGRES_DB: myproject
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+
+  subscriber:
+    container_name: myproject_subscriber
+    build: .
+    restart: always
+    entrypoint: ["python", "blog_app/mqtt_subscriber.py"]
+    depends_on:
+      - db
+      - mqtt
+      - web
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: myprojectuser
+      POSTGRES_PASSWORD: myproject@123
+      POSTGRES_DB: myproject
+
+
+volumes:
+  pgdata:
