@@ -197,7 +197,62 @@ SWAGGER_SETTINGS = {
     },
     "USE_SESSION_AUTH": False,
 }
+import logging
+import json
+import socket
 
+
+# ----------------------------------------------------
+# Custom Logstash TCP Handler
+# ----------------------------------------------------
+class LogstashTCPHandler(logging.Handler):
+    def emit(self, record):
+        log_entry = {
+            "level": record.levelname,
+            "logger": record.name,
+            "message": record.getMessage(),
+        }
+
+        skip_keys = {
+            "name", "msg", "args", "levelname", "levelno",
+            "pathname", "filename", "module", "exc_info",
+            "exc_text", "stack_info", "lineno", "funcName",
+            "created", "msecs", "relativeCreated",
+            "thread", "threadName", "processName", "process"
+        }
+
+        for key, value in record.__dict__.items():
+            if key not in skip_keys:
+                log_entry[key] = value
+
+        try:
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.connect(("logstash", 5044))   # MUST match docker service name
+            sock.sendall((json.dumps(log_entry) + "\n").encode("utf-8"))
+            sock.close()
+        except Exception as e:
+            print("Logstash connection error:", e)
+
+
+# ----------------------------------------------------
+# LOGGING CONFIG
+# ----------------------------------------------------
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "logstash": {
+            "()": LogstashTCPHandler,
+        },
+    },
+    "loggers": {
+        "blog_publisher": {
+            "handlers": ["logstash"],
+            "level": "INFO",
+            "propagate": False,
+        },
+    },
+}
 
 # ---------------------------
 # CELERY CONFIGURATION

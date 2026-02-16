@@ -1,3 +1,6 @@
+import razorpay
+from django.conf import settings
+
 from django.contrib import admin
 from django.utils import timezone
 from .models import Plan, PlanFeature, UserSubscription
@@ -9,9 +12,35 @@ class PlanFeatureAdmin(admin.ModelAdmin):
 
 @admin.register(Plan)
 class PlanAdmin(admin.ModelAdmin):
-    list_display = ("id", "name", "price", "billing_cycle", "is_active")
+    list_display = ("id", "name", "price", "billing_cycle", "is_active", "razorpay_plan_id")
     list_editable = ("is_active",)
     filter_horizontal = ("features",)
+    readonly_fields = ("razorpay_plan_id",)
+
+    def save_model(self, request, obj, form, change):
+        # Only create Razorpay plan if it does not already exist
+        if not obj.razorpay_plan_id:
+            client = razorpay.Client(
+                auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET)
+            )
+
+            interval = 1
+            period = obj.billing_cycle  # monthly or yearly
+
+            razorpay_plan = client.plan.create({
+                "period": period,
+                "interval": interval,
+                "item": {
+                    "name": obj.name,
+                    "amount": obj.price * 100,  # convert to paisa
+                    "currency": "INR",
+                    "description": f"{obj.name} subscription plan"
+                }
+            })
+
+            obj.razorpay_plan_id = razorpay_plan["id"]
+
+        super().save_model(request, obj, form, change)
 
 @admin.register(UserSubscription)
 class UserSubscriptionAdmin(admin.ModelAdmin):

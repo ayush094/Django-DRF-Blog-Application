@@ -1,14 +1,23 @@
+import logging
+import logging.config
+from django.conf import settings
 from celery import shared_task
 from django.utils import timezone
 from django.db.utils import ProgrammingError, OperationalError
 from blog_app.models import Blog
-
-# Import centralized MQTT publisher
 from blog_app.mqtt_publisher import mqtt_publish
 
 
 # ----------------------------------------------------
-# TASK 1 — Publish a single scheduled blog (ETA task)
+# FORCE DJANGO LOGGING INTO CELERY
+# ----------------------------------------------------
+logging.config.dictConfig(settings.LOGGING)
+
+logger = logging.getLogger("blog_publisher")
+
+
+# ----------------------------------------------------
+# TASK 1 — Publish Single Scheduled Blog
 # ----------------------------------------------------
 @shared_task
 def publish_scheduled_blog(blog_id):
@@ -21,55 +30,87 @@ def publish_scheduled_blog(blog_id):
             blog.published_at = blog.scheduled_publish_at
             blog.save()
 
-            print(f"[publish_scheduled_blog] Blog {blog_id} published.")
+            logger.info(
+                "Blog published",
+                extra={
+                    "event": "blog_published",
+                    "blog_id": blog.id,
+                    "title": blog.title,
+                    "status": "published",
+                    "published_at": str(blog.published_at),
+                }
+            )
 
-            # Send MQTT Notification
             mqtt_publish("blog/published", {
                 "blog_id": blog.id,
                 "title": blog.title,
-                "content": blog.content,
                 "status": "published",
-                "published_at": str(blog.published_at)
+                "published_at": str(blog.published_at),
             })
 
         else:
-            print(
-                f"[publish_scheduled_blog] NOT published — now={now}, "
-                f"scheduled={blog.scheduled_publish_at}"
+            logger.info(
+                "Blog not published yet",
+                extra={
+                    "event": "blog_not_published",
+                    "blog_id": blog.id,
+                    "scheduled_at": str(blog.scheduled_publish_at),
+                    "current_time": str(now),
+                }
             )
 
     except Blog.DoesNotExist:
-        print(f"❌ Blog {blog_id} not found")
+        logger.error(
+            "Blog not found",
+            extra={
+                "event": "blog_not_found",
+                "blog_id": blog_id,
+            }
+        )
 
 
 # ----------------------------------------------------
-# TASK 2 — Periodic task to publish all due blogs
+# TASK 2 — Publish All Due Blogs
 # ----------------------------------------------------
 @shared_task
 def publish_due_blogs():
     try:
         now = timezone.now()
 
-        due = Blog.objects.filter(
+        due_blogs = Blog.objects.filter(
             is_published=False,
-            scheduled_publish_at__lte=now
+            scheduled_publish_at__lte=now,
         )
 
     except (ProgrammingError, OperationalError):
-        print("⚠ Database not ready — skipping publish_due_blogs")
+        logger.warning(
+            "Database not ready",
+            extra={
+                "event": "database_not_ready",
+                "task": "publish_due_blogs",
+            }
+        )
         return
 
-    for blog in due:
+    for blog in due_blogs:
         blog.is_published = True
         blog.published_at = blog.scheduled_publish_at
         blog.save()
 
-        print(f"[publish_due_blogs] Published blog {blog.id}")
+        logger.info(
+            "Blog published",
+            extra={
+                "event": "blog_published",
+                "blog_id": blog.id,
+                "title": blog.title,
+                "status": "published",
+                "published_at": str(blog.published_at),
+            }
+        )
 
-        # Send MQTT notification
         mqtt_publish("blog/published", {
             "blog_id": blog.id,
             "title": blog.title,
             "status": "published",
-            "published_at": str(blog.published_at)
+            "published_at": str(blog.published_at),
         })
