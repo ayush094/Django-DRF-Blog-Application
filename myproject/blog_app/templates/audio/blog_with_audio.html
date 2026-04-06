@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ blog.title }} - Smart Audio Blog</title>
+
+  <!-- Google Fonts - Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Audio Styles -->
+  <link rel="stylesheet" href="{% static 'audio/css/audio-styles.css' %}">
+
+  <style>
+    .blog-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 24px;
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+
+    .blog-content h1, .blog-content h2, .blog-content h3 {
+      color: var(--md-primary-dark);
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+    }
+
+    .blog-content p {
+      margin-bottom: 1.5em;
+    }
+
+    .blog-meta {
+      color: var(--md-text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--md-divider);
+    }
+
+    .audio-expand-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 32px auto;
+      max-width: 300px;
+    }
+
+    .blog-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      margin: 24px 0;
+      box-shadow: var(--shadow-2);
+    }
+
+    @media (max-width: 768px) {
+      .blog-content {
+        padding: 16px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body style="background: var(--md-background);">
+  <!-- Navigation -->
+  <nav style="background: var(--md-surface); box-shadow: var(--shadow-1); padding: 16px 0; position: sticky; top: 0; z-index: 1000;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center;">
+      <a href="/" style="text-decoration: none; color: var(--md-primary); font-weight: 500; font-size: 1.2rem;">
+        <span class="material-icons" style="vertical-align: middle; margin-right: 8px;">home</span>
+        Blog Home
+      </a>
+      <a href="{% url 'audio-hub' %}?blog_id={{ blog.id }}" class="audio-btn audio-btn-primary">
+        <span class="material-icons" style="vertical-align: middle;">headphones</span>
+        Open Audio Hub
+      </a>
+    </div>
+  </nav>
+
+  <div class="blog-content">
+    <!-- Blog Header -->
+    <header style="text-align: center; margin-bottom: 40px;">
+      <h1 style="font-size: 2.5rem; font-weight: 700; color: var(--md-primary-dark); margin-bottom: 16px;">
+        {{ blog.title }}
+      </h1>
+      <div class="blog-meta">
+        <span>
+          <span class="material-icons" style="vertical-align: middle; font-size: 1rem; margin-right: 4px;">person</span>
+          By {{ blog.author.username }}
+        </span>
+        <span style="margin-left: 24px;">
+          <span class="material-icons" style="vertical-align: middle; font-size: 1rem; margin-right: 4px;">calendar_today</span>
+          {{ blog.published_at|date:"M d, Y" }}
+        </span>
+      </div>
+
+      {% if blog.image %}
+        <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="blog-image">
+      {% endif %}
+    </header>
+
+    <!-- Blog Body -->
+    <article>
+      {{ blog.content|linebreaks }}
+    </article>
+
+    <!-- Audio Hub CTA -->
+    <div style="margin: 48px 0; text-align: center; padding: 32px; background: linear-gradient(135deg, var(--md-primary-light) 0%, #BBDEFB 100%); border-radius: var(--radius);">
+      <h2 style="color: var(--md-primary-dark); margin-bottom: 12px;">
+        <span class="material-icons" style="vertical-align: middle; margin-right: 8px; font-size: 2rem;">headphones</span>
+        Listen to This Blog
+      </h2>
+      <p style="color: var(--md-text-secondary); margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Transform this blog into audio with customizable modes, languages, and voice styles.
+        Perfect for learning on the go!
+      </p>
+      <a href="{% url 'audio-hub' %}?blog_id={{ blog.id }}" class="audio-btn audio-btn-primary audio-expand-btn" style="font-size: 1.1rem; padding: 16px 32px;">
+        <span class="material-icons" style="font-size: 1.5rem;">auto_awesome</span>
+        Open Audio Hub
+      </a>
+    </div>
+
+    <!-- Audio Player Section (embedded) -->
+    <div id="embedded-audio-section" style="display: none;">
+      <!-- Audio player will be loaded here via AJAX -->
+    </div>
+  </div>
+
+  <script>
+    // If URL has blog_id parameter, we could auto-load embedded player
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('show_audio')) {
+        const section = document.getElementById('embedded-audio-section');
+        if (section) {
+          section.style.display = 'block';
+          section.innerHTML = '<div class="audio-card"><p>Loading audio...</p></div>';
+          // Could fetch and embed the audio hub in an iframe or load via AJAX
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -462,6 +462,9 @@ from rest_framework.parsers import MultiPartParser, FormParser
 
 from blog_app.mqtt_publisher import mqtt_publish
 from django.db import connection
+from anthropic import AnthropicError
+
+from .ai_assistant import get_ai_response
 
 
 # -----------------------
@@ -1410,3 +1413,136 @@ class CommentViewSet(viewsets.ViewSet):
             return paginator.get_paginated_response(CommentSerializer(page, many=True).data)
 
         return Response(CommentSerializer(comments, many=True).data)
+
+
+class AIAssistViewSet(viewsets.ViewSet):
+    permission_classes = [permissions.IsAuthenticated]
+
+    @swagger_auto_schema(
+        method="post",
+        operation_summary="AI writing assistant",
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            required=["action", "content"],
+            properties={
+                "action": openapi.Schema(
+                    type=openapi.TYPE_STRING,
+                    enum=["improve", "summarize", "generate", "expand"],
+                    example="improve",
+                ),
+                "content": openapi.Schema(
+                    type=openapi.TYPE_STRING,
+                    example="Write a blog post about Django REST Framework best practices.",
+                ),
+            },
+        ),
+        security=[{"Bearer": []}],
+        responses={
+            200: openapi.Schema(
+                type=openapi.TYPE_OBJECT,
+                properties={
+                    "action": openapi.Schema(type=openapi.TYPE_STRING, example="improve"),
+                    "result": openapi.Schema(type=openapi.TYPE_STRING),
+                },
+            ),
+            400: "Invalid request",
+            403: "Only authors or staff can use this endpoint",
+            502: "Anthropic API error",
+        },
+    )
+    @action(detail=False, methods=["post"], url_path="assist")
+    def assist(self, request):
+        user = request.user
+        if getattr(user, "role", None) != "author" and not user.is_staff:
+            return Response(
+                {"detail": "Only authors or staff can use this endpoint."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        action_name = request.data.get("action")
+        content = request.data.get("content")
+
+        valid_actions = {"improve", "summarize", "generate", "expand"}
+        if action_name not in valid_actions:
+            return Response(
+                {"detail": "Invalid action. Use improve, summarize, generate, or expand."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        if action_name in {"improve", "summarize", "expand"} and not content:
+            return Response(
+                {"detail": "content is required for improve, summarize, and expand."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        if action_name == "generate" and not content:
+            return Response(
+                {"detail": "content is required for generate."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        try:
+            ai_response = get_ai_response(action_name, content)
+        except AnthropicError:
+            return Response(
+                {"detail": "AI service is temporarily unavailable."},
+                status=status.HTTP_502_BAD_GATEWAY,
+            )
+        except Exception:
+            return Response(
+                {"detail": "Failed to process AI request."},
+                status=status.HTTP_502_BAD_GATEWAY,
+            )
+
+        return Response(
+            {
+                "action": action_name,
+                "result": ai_response,
+            },
+            status=status.HTTP_200_OK,
+        )
+
+
+# -----------------------
+# Audio Hub View (HTML)
+# -----------------------
+from django.views.generic import TemplateView
+from rest_framework.permissions import IsAuthenticated
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+
+class AudioHubView(LoginRequiredMixin, TemplateView):
+    """
+    Render the Smart Audio Blog UI.
+    This is the main frontend interface for the audio feature.
+    """
+    template_name = 'audio/audio_hub.html'
+
+    def get_template_names(self):
+        # Allow switching between full hub and embedded view
+        view_type = self.request.GET.get('view', 'hub')
+        if view_type == 'blog':
+            return ['audio/blog_with_audio.html']
+        return [self.template_name]
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # Get blog_id from query params if provided
+        blog_id = self.request.GET.get('blog_id')
+
+        if blog_id:
+            try:
+                from .models import Blog
+                blog = Blog.objects.select_related('author').get(
+                    id=blog_id,
+                    is_published=True
+                )
+                context['blog'] = blog
+                context['blog_id'] = blog.id
+            except Blog.DoesNotExist:
+                context['blog'] = None
+                context['blog_id'] = None
+
+        return context
+

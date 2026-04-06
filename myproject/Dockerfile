@@ -8,6 +8,8 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
+    espeak-ng \
+    ffmpeg \
     libpq-dev \
     postgresql-client \
     netcat-openbsd \

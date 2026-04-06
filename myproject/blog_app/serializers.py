@@ -83,7 +83,7 @@ class BlogCreateSerializer(serializers.ModelSerializer):
         else:
             # User has NO active plan: Fallback to "Free Tier" defaults
             active_codes = []  # No premium features (No passwords, No SEO)
-            allowed_limit = 1   # Set this to your desired free limit (e.g., 1 or 2)
+            allowed_limit = 100   # Free tier blog limit
 
         # 3. Check: Blog Post Limit
         # Skip check if user has 'unlimited_blogs' code

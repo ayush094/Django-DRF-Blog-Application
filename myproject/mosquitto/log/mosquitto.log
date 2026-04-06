@@ -1726,3 +1726,401 @@ To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
 1771220961: Client auto-FCAF2716-E9B2-985C-F10C-95E3A99A30FC closed its connection.
 1771220962: mosquitto version 2.1.0 terminating
 1771220962: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1774594121: mosquitto version 2.1.2 starting
+1774594121: Config loaded from /mosquitto/config/mosquitto.conf.
+1774594121: Bridge support available.
+1774594121: Persistence support available.
+1774594121: TLS support available.
+1774594121: TLS-PSK support available.
+1774594121: Websockets support available.
+1774594121: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1774594121: Plugin builtin-security has registered to receive 'basic-auth' events.
+1774594121: Opening ipv4 listen socket on port 1883.
+1774594121: Opening ipv6 listen socket on port 1883.
+1774594121: mosquitto version 2.1.2 running
+1774595291: New connection from 172.20.0.10:39087 on port 1883.
+1774595291: New client connected from 172.20.0.10:39087 as auto-4A2CF91A-E3E1-3814-D2B9-1E74CCD5E8CC (p4, c1, k60, u'admin').
+1774595291: Client auto-4A2CF91A-E3E1-3814-D2B9-1E74CCD5E8CC [172.20.0.10:39087] disconnected: connection closed by client.
+1774595300: New connection from 172.20.0.10:41541 on port 1883.
+1774595300: New client connected from 172.20.0.10:41541 as auto-0B7FC78D-DDEF-F2DD-D81E-B1B8D1D4025F (p4, c1, k60, u'admin').
+1774595922: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1774596433: Client auto-0B7FC78D-DDEF-F2DD-D81E-B1B8D1D4025F [172.20.0.10:41541] disconnected: connection closed by client.
+1774596433: mosquitto version 2.1.2 terminating
+1774596433: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1774842210: mosquitto version 2.1.2 starting
+1774842210: Config loaded from /mosquitto/config/mosquitto.conf.
+1774842210: Bridge support available.
+1774842210: Persistence support available.
+1774842210: TLS support available.
+1774842210: TLS-PSK support available.
+1774842210: Websockets support available.
+1774842210: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1774842210: Plugin builtin-security has registered to receive 'basic-auth' events.
+1774842210: Opening ipv4 listen socket on port 1883.
+1774842210: Opening ipv6 listen socket on port 1883.
+1774842210: mosquitto version 2.1.2 running
+1774842669: New connection from 172.20.0.4:34637 on port 1883.
+1774842669: New client connected from 172.20.0.4:34637 as auto-2E6C0F0A-0470-3935-430B-8567B0AAC1EF (p4, c1, k60, u'admin').
+1774842856: mosquitto version 2.1.2 starting
+1774842856: Config loaded from /mosquitto/config/mosquitto.conf.
+1774842856: Bridge support available.
+1774842856: Persistence support available.
+1774842856: TLS support available.
+1774842856: TLS-PSK support available.
+1774842856: Websockets support available.
+1774842856: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1774842856: Plugin builtin-security has registered to receive 'basic-auth' events.
+1774842856: Opening ipv4 listen socket on port 1883.
+1774842856: Opening ipv6 listen socket on port 1883.
+1774842856: mosquitto version 2.1.2 running
+1774842866: New connection from 172.20.0.8:57667 on port 1883.
+1774842866: New client connected from 172.20.0.8:57667 as auto-4AA74CDF-2836-BCA1-4423-5559C8F8520F (p4, c1, k60, u'admin').
+1774843415: Client auto-4AA74CDF-2836-BCA1-4423-5559C8F8520F [172.20.0.8:57667] disconnected: connection closed by client.
+1774843426: New connection from 172.20.0.9:51099 on port 1883.
+1774843426: New client connected from 172.20.0.9:51099 as auto-3D986B7D-8851-0FD6-49DB-25C314E07F9C (p4, c1, k60, u'admin').
+1774844656: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1774845365: mosquitto version 2.1.2 starting
+1774845365: Config loaded from /mosquitto/config/mosquitto.conf.
+1774845365: Bridge support available.
+1774845365: Persistence support available.
+1774845365: TLS support available.
+1774845365: TLS-PSK support available.
+1774845365: Websockets support available.
+1774845365: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1774845365: Plugin builtin-security has registered to receive 'basic-auth' events.
+1774845365: Opening ipv4 listen socket on port 1883.
+1774845365: Opening ipv6 listen socket on port 1883.
+1774845365: mosquitto version 2.1.2 running
+1774845374: New connection from 172.20.0.8:53455 on port 1883.
+1774845374: New client connected from 172.20.0.8:53455 as auto-CE77B278-C481-4574-2826-CAD5961E3955 (p4, c1, k60, u'admin').
+1774847166: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1774848967: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1774849593: mosquitto version 2.1.2 starting
+1774849593: Config loaded from /mosquitto/config/mosquitto.conf.
+1774849593: Bridge support available.
+1774849593: Persistence support available.
+1774849593: TLS support available.
+1774849593: TLS-PSK support available.
+1774849593: Websockets support available.
+1774849593: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1774849593: Plugin builtin-security has registered to receive 'basic-auth' events.
+1774849593: Opening ipv4 listen socket on port 1883.
+1774849593: Opening ipv6 listen socket on port 1883.
+1774849593: mosquitto version 2.1.2 running
+1774849602: New connection from 172.20.0.8:55491 on port 1883.
+1774849602: New client connected from 172.20.0.8:55491 as auto-61DFDD91-D403-6DDE-2153-6F7D4E0AC2FD (p4, c1, k60, u'admin').
+1774851394: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1774853195: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1774854996: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1774856797: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1774858598: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1774860399: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1774862200: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1774864001: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1774865802: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1774867603: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1774869404: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1774871205: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1774873006: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1774874807: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1774876608: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1775018522: mosquitto version 2.1.2 starting
+1775018522: Config loaded from /mosquitto/config/mosquitto.conf.
+1775018522: Bridge support available.
+1775018522: Persistence support available.
+1775018522: TLS support available.
+1775018522: TLS-PSK support available.
+1775018522: Websockets support available.
+1775018522: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1775018522: Plugin builtin-security has registered to receive 'basic-auth' events.
+1775018522: Opening ipv4 listen socket on port 1883.
+1775018522: Opening ipv6 listen socket on port 1883.
+1775018522: mosquitto version 2.1.2 running
+1775018533: New connection from 172.20.0.10:52543 on port 1883.
+1775018533: New client connected from 172.20.0.10:52543 as auto-3BE12CDB-6D23-99ED-E743-612C5CA299F5 (p4, c1, k60, u'admin').
+1775020322: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1775025315: mosquitto version 2.1.2 starting
+1775025315: Config loaded from /mosquitto/config/mosquitto.conf.
+1775025315: Bridge support available.
+1775025315: Persistence support available.
+1775025315: TLS support available.
+1775025315: TLS-PSK support available.
+1775025315: Websockets support available.
+1775025315: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1775025315: Plugin builtin-security has registered to receive 'basic-auth' events.
+1775025315: Opening ipv4 listen socket on port 1883.
+1775025315: Opening ipv6 listen socket on port 1883.
+1775025315: mosquitto version 2.1.2 running
+1775025333: New connection from 172.20.0.10:46497 on port 1883.
+1775025333: New client connected from 172.20.0.10:46497 as auto-0061F1FB-CD46-5AF9-8010-D8D03A757953 (p4, c1, k60, u'admin').
+1775027116: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1775027444: New connection from 172.20.0.7:42983 on port 1883.
+1775027444: New client connected from 172.20.0.7:42983 as auto-DA81B2F2-C2B3-88E8-6BD8-5AA996EF1ACE (p4, c1, k60, u'admin').
+1775027444: Client auto-DA81B2F2-C2B3-88E8-6BD8-5AA996EF1ACE [172.20.0.7:42983] disconnected.
+1775033276: mosquitto version 2.1.2 starting
+1775033276: Config loaded from /mosquitto/config/mosquitto.conf.
+1775033276: Bridge support available.
+1775033276: Persistence support available.
+1775033276: TLS support available.
+1775033276: TLS-PSK support available.
+1775033276: Websockets support available.
+1775033276: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1775033276: Plugin builtin-security has registered to receive 'basic-auth' events.
+1775033276: Opening ipv4 listen socket on port 1883.
+1775033276: Opening ipv6 listen socket on port 1883.
+1775033276: mosquitto version 2.1.2 running
+1775033290: New connection from 172.20.0.7:52165 on port 1883.
+1775033290: New client connected from 172.20.0.7:52165 as auto-52479CCD-3DBA-6A71-CE50-A59896D53631 (p4, c1, k60, u'admin').
+1775035077: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1775039213: mosquitto version 2.1.2 starting
+1775039213: Config loaded from /mosquitto/config/mosquitto.conf.
+1775039213: Bridge support available.
+1775039213: Persistence support available.
+1775039213: TLS support available.
+1775039213: TLS-PSK support available.
+1775039213: Websockets support available.
+1775039213: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1775039213: Plugin builtin-security has registered to receive 'basic-auth' events.
+1775039213: Opening ipv4 listen socket on port 1883.
+1775039213: Opening ipv6 listen socket on port 1883.
+1775039213: mosquitto version 2.1.2 running
+1775039230: New connection from 172.20.0.2:53329 on port 1883.
+1775039230: New client connected from 172.20.0.2:53329 as auto-13A70157-E517-3D51-8D13-16D4F182126D (p4, c1, k60, u'admin').
+1775040078: Client auto-13A70157-E517-3D51-8D13-16D4F182126D [172.20.0.2:53329] disconnected: connection closed by client.
+1775040079: mosquitto version 2.1.2 terminating
+1775040079: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1775040096: mosquitto version 2.1.2 starting
+1775040096: Config loaded from /mosquitto/config/mosquitto.conf.
+1775040096: Bridge support available.
+1775040096: Persistence support available.
+1775040096: TLS support available.
+1775040096: TLS-PSK support available.
+1775040096: Websockets support available.
+1775040096: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1775040096: Plugin builtin-security has registered to receive 'basic-auth' events.
+1775040096: Opening ipv4 listen socket on port 1883.
+1775040096: Opening ipv6 listen socket on port 1883.
+1775040096: mosquitto version 2.1.2 running
+1775040767: New connection from 172.20.0.5:37617 on port 1883.
+1775040767: New client connected from 172.20.0.5:37617 as auto-C8D48D1A-07A9-94EC-A992-1FCCE939999C (p4, c1, k60, u'admin').
+1775041897: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1775105121: mosquitto version 2.1.2 starting
+1775105121: Config loaded from /mosquitto/config/mosquitto.conf.
+1775105121: Bridge support available.
+1775105121: Persistence support available.
+1775105121: TLS support available.
+1775105121: TLS-PSK support available.
+1775105121: Websockets support available.
+1775105121: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1775105121: Plugin builtin-security has registered to receive 'basic-auth' events.
+1775105121: Opening ipv4 listen socket on port 1883.
+1775105121: Opening ipv6 listen socket on port 1883.
+1775105121: mosquitto version 2.1.2 running
+1775105137: New connection from 172.20.0.10:55323 on port 1883.
+1775105137: New client connected from 172.20.0.10:55323 as auto-FF8C2547-6026-4DB8-0F4E-4137ADE2BEC3 (p4, c1, k60, u'admin').
+1775105146: Client auto-FF8C2547-6026-4DB8-0F4E-4137ADE2BEC3 [172.20.0.10:55323] disconnected: connection closed by client.
+1775105166: New connection from 172.20.0.9:39249 on port 1883.
+1775105166: New client connected from 172.20.0.9:39249 as auto-B794E30A-548C-251B-B611-3C0116BC9FAC (p4, c1, k60, u'admin').
+1775106348: mosquitto version 2.1.2 starting
+1775106348: Config loaded from /mosquitto/config/mosquitto.conf.
+1775106348: Bridge support available.
+1775106348: Persistence support available.
+1775106348: TLS support available.
+1775106348: TLS-PSK support available.
+1775106348: Websockets support available.
+1775106348: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1775106348: Plugin builtin-security has registered to receive 'basic-auth' events.
+1775106348: Opening ipv4 listen socket on port 1883.
+1775106348: Opening ipv6 listen socket on port 1883.
+1775106348: mosquitto version 2.1.2 running
+1775106365: New connection from 172.20.0.2:57651 on port 1883.
+1775106365: New client connected from 172.20.0.2:57651 as auto-41232B9B-A2C5-D715-7E08-D626458D3BCA (p4, c1, k60, u'admin').
+1775106372: Client auto-41232B9B-A2C5-D715-7E08-D626458D3BCA [172.20.0.2:57651] disconnected: connection closed by client.
+1775106390: New connection from 172.20.0.10:37387 on port 1883.
+1775106390: New client connected from 172.20.0.10:37387 as auto-C6FFE698-12BC-A83D-43AA-58743ACF8936 (p4, c1, k60, u'admin').
+1775108875: mosquitto version 2.1.2 starting
+1775108875: Config loaded from /mosquitto/config/mosquitto.conf.
+1775108875: Bridge support available.
+1775108875: Persistence support available.
+1775108875: TLS support available.
+1775108875: TLS-PSK support available.
+1775108875: Websockets support available.
+1775108875: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1775108875: Plugin builtin-security has registered to receive 'basic-auth' events.
+1775108875: Opening ipv4 listen socket on port 1883.
+1775108875: Opening ipv6 listen socket on port 1883.
+1775108875: mosquitto version 2.1.2 running
+1775108894: New connection from 172.20.0.11:57561 on port 1883.
+1775108894: New client connected from 172.20.0.11:57561 as auto-122449CD-36D1-2190-D3D7-AB14C913083E (p4, c1, k60, u'admin').
+1775108905: Client auto-122449CD-36D1-2190-D3D7-AB14C913083E [172.20.0.11:57561] disconnected: connection closed by client.
+1775108924: New connection from 172.20.0.3:57235 on port 1883.
+1775108924: New client connected from 172.20.0.3:57235 as auto-155B62E2-B3EF-962D-FE5B-BE30F2468BF5 (p4, c1, k60, u'admin').
+1775110255: mosquitto version 2.1.2 starting
+1775110255: Config loaded from /mosquitto/config/mosquitto.conf.
+1775110255: Bridge support available.
+1775110255: Persistence support available.
+1775110255: TLS support available.
+1775110255: TLS-PSK support available.
+1775110255: Websockets support available.
+1775110255: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1775110255: Plugin builtin-security has registered to receive 'basic-auth' events.
+1775110255: Opening ipv4 listen socket on port 1883.
+1775110255: Opening ipv6 listen socket on port 1883.
+1775110255: mosquitto version 2.1.2 running
+1775110270: mosquitto version 2.1.2 terminating
+1775110270: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1775110278: mosquitto version 2.1.2 starting
+1775110278: Config loaded from /mosquitto/config/mosquitto.conf.
+1775110278: Bridge support available.
+1775110278: Persistence support available.
+1775110278: TLS support available.
+1775110278: TLS-PSK support available.
+1775110278: Websockets support available.
+1775110278: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1775110278: Plugin builtin-security has registered to receive 'basic-auth' events.
+1775110278: Opening ipv4 listen socket on port 1883.
+1775110278: Opening ipv6 listen socket on port 1883.
+1775110278: mosquitto version 2.1.2 running
+1775110287: mosquitto version 2.1.2 terminating
+1775110287: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1775110293: mosquitto version 2.1.2 starting
+1775110293: Config loaded from /mosquitto/config/mosquitto.conf.
+1775110293: Bridge support available.
+1775110293: Persistence support available.
+1775110293: TLS support available.
+1775110293: TLS-PSK support available.
+1775110293: Websockets support available.
+1775110293: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1775110293: Plugin builtin-security has registered to receive 'basic-auth' events.
+1775110293: Opening ipv4 listen socket on port 1883.
+1775110293: Opening ipv6 listen socket on port 1883.
+1775110293: mosquitto version 2.1.2 running
+1775110406: New connection from 172.20.0.9:53457 on port 1883.
+1775110406: New client connected from 172.20.0.9:53457 as auto-2CB9F751-F000-7465-ADAB-42AB301DA7A4 (p4, c1, k60, u'admin').
+1775110438: Client auto-2CB9F751-F000-7465-ADAB-42AB301DA7A4 [172.20.0.9:53457] disconnected: connection closed by client.
+1775110452: New connection from 172.20.0.11:32871 on port 1883.
+1775110452: New client connected from 172.20.0.11:32871 as auto-B89A6E87-024A-1AEB-31AD-5331C43A89AC (p4, c1, k60, u'admin').
+1775111576: mosquitto version 2.1.2 starting
+1775111576: Config loaded from /mosquitto/config/mosquitto.conf.
+1775111576: Bridge support available.
+1775111576: Persistence support available.
+1775111576: TLS support available.
+1775111576: TLS-PSK support available.
+1775111576: Websockets support available.
+1775111576: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1775111576: Plugin builtin-security has registered to receive 'basic-auth' events.
+1775111576: Opening ipv4 listen socket on port 1883.
+1775111576: Opening ipv6 listen socket on port 1883.
+1775111576: mosquitto version 2.1.2 running
+1775111591: New connection from 172.20.0.11:43701 on port 1883.
+1775111591: New client connected from 172.20.0.11:43701 as auto-DE71A926-D0C3-353D-11D4-988232D78B1C (p4, c1, k60, u'admin').
+1775113100: New connection from 172.20.0.6:52921 on port 1883.
+1775113100: New client connected from 172.20.0.6:52921 as auto-4AC14AE3-857F-8058-53D6-7C768FEA8B31 (p4, c1, k60, u'admin').
+1775113100: Client auto-4AC14AE3-857F-8058-53D6-7C768FEA8B31 [172.20.0.6:52921] disconnected.
+1775113376: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1775115158: Client auto-DE71A926-D0C3-353D-11D4-988232D78B1C [172.20.0.11:43701] disconnected: connection closed by client.
+1775115159: mosquitto version 2.1.2 terminating
+1775115159: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1775124704: mosquitto version 2.1.2 starting
+1775124704: Config loaded from /mosquitto/config/mosquitto.conf.
+1775124704: Bridge support available.
+1775124704: Persistence support available.
+1775124704: TLS support available.
+1775124704: TLS-PSK support available.
+1775124704: Websockets support available.
+1775124704: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1775124704: Plugin builtin-security has registered to receive 'basic-auth' events.
+1775124704: Opening ipv4 listen socket on port 1883.
+1775124704: Opening ipv6 listen socket on port 1883.
+1775124704: mosquitto version 2.1.2 running
+1775124723: New connection from 172.20.0.9:49663 on port 1883.
+1775124723: New client connected from 172.20.0.9:49663 as auto-3A67D5C5-A7C9-854C-03A8-702DAB8DBB6B (p4, c1, k60, u'admin').
+1775124760: New connection from 172.20.0.10:43623 on port 1883.
+1775124760: New client connected from 172.20.0.10:43623 as auto-5443849C-50FB-3600-F465-7D2DED56D1B9 (p4, c1, k60, u'admin').
+1775124760: Client auto-5443849C-50FB-3600-F465-7D2DED56D1B9 [172.20.0.10:43623] disconnected.
+1775125971: mosquitto version 2.1.2 starting
+1775125971: Config loaded from /mosquitto/config/mosquitto.conf.
+1775125971: Bridge support available.
+1775125971: Persistence support available.
+1775125971: TLS support available.
+1775125971: TLS-PSK support available.
+1775125971: Websockets support available.
+1775125971: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1775125971: Plugin builtin-security has registered to receive 'basic-auth' events.
+1775125971: Opening ipv4 listen socket on port 1883.
+1775125971: Opening ipv6 listen socket on port 1883.
+1775125971: mosquitto version 2.1.2 running
+1775125989: New connection from 172.20.0.11:40827 on port 1883.
+1775125989: New client connected from 172.20.0.11:40827 as auto-79477514-85DE-61E3-6FF7-A6FC800D95E4 (p4, c1, k60, u'admin').
+1775126023: New connection from 172.20.0.8:39877 on port 1883.
+1775126023: New client connected from 172.20.0.8:39877 as auto-6BEA5E94-91EC-4F29-209B-B3F0F6003C78 (p4, c1, k60, u'admin').
+1775126023: Client auto-6BEA5E94-91EC-4F29-209B-B3F0F6003C78 [172.20.0.8:39877] disconnected.
+1775126782: New connection from 172.20.0.9:54615 on port 1883.
+1775126782: New client connected from 172.20.0.9:54615 as auto-50DD5B24-7398-A635-1DA7-A0C0A9064897 (p4, c1, k60, u'admin').
+1775126782: Client auto-50DD5B24-7398-A635-1DA7-A0C0A9064897 [172.20.0.9:54615] disconnected.
+1775126806: New connection from 172.20.0.8:36667 on port 1883.
+1775126806: New client connected from 172.20.0.8:36667 as auto-BACFF4C0-2357-7E1C-5259-41CE3B195B06 (p4, c1, k60, u'admin').
+1775126806: Client auto-BACFF4C0-2357-7E1C-5259-41CE3B195B06 [172.20.0.8:36667] disconnected: connection closed by client.
+1775127000: New connection from 172.20.0.8:35143 on port 1883.
+1775127000: New client connected from 172.20.0.8:35143 as auto-7C08718E-CB43-C709-9BDA-20E369FC857F (p4, c1, k60, u'admin').
+1775127000: Client auto-7C08718E-CB43-C709-9BDA-20E369FC857F [172.20.0.8:35143] disconnected.
+1775127772: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1775128481: mosquitto version 2.1.2 starting
+1775128481: Config loaded from /mosquitto/config/mosquitto.conf.
+1775128481: Bridge support available.
+1775128481: Persistence support available.
+1775128481: TLS support available.
+1775128481: TLS-PSK support available.
+1775128481: Websockets support available.
+1775128481: Warning: File /mosquitto/config/passwordfile has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /mosquitto/config/passwordfile`.
+
+1775128481: Plugin builtin-security has registered to receive 'basic-auth' events.
+1775128481: Opening ipv4 listen socket on port 1883.
+1775128481: Opening ipv6 listen socket on port 1883.
+1775128481: mosquitto version 2.1.2 running
+1775128498: New connection from 172.20.0.8:47783 on port 1883.
+1775128498: New client connected from 172.20.0.8:47783 as auto-07BA4EC5-DB98-7FEB-C00E-D0A966640828 (p4, c1, k60, u'admin').
+1775130282: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1775132083: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1775132185: Client auto-07BA4EC5-DB98-7FEB-C00E-D0A966640828 [172.20.0.8:47783] disconnected: connection closed by client.
+1775132186: mosquitto version 2.1.2 terminating
+1775132186: Saving in-memory database to /mosquitto/data//mosquitto.db.

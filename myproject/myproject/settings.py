@@ -1,15 +1,21 @@
 from pathlib import Path
 from datetime import timedelta  # Make sure this import is at the top of your settings.py
 import os
+import logging
+import json
+import socket
+
+from decouple import AutoConfig, Csv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+config = AutoConfig(search_path=BASE_DIR)
 
 # SECURITY WARNING: keep the secret key secret!
-SECRET_KEY = "django-insecure-w4&c_o8)n8*-syk3x3_u+)&rpuo7+7f&w)5id(*@otk0=(n19+"
+SECRET_KEY = config("SECRET_KEY")
 
-DEBUG = True
+DEBUG = config("DEBUG", default=False, cast=bool)
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="", cast=Csv())
 
 
 # ---------------------------
@@ -31,6 +37,7 @@ INSTALLED_APPS = [
 
     # Local Apps
     "blog_app",
+    "blog_app.audio.apps.AudioConfig",
     "subscription",
 ]
 
@@ -81,11 +88,11 @@ WSGI_APPLICATION = "myproject.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "myproject",
-        "USER": "myprojectuser",
-        "PASSWORD": "myproject@123",
-        "HOST": "db",
-        "PORT": "5432",
+        "NAME": config("DB_NAME"),
+        "USER": config("DB_USER"),
+        "PASSWORD": config("DB_PASSWORD"),
+        "HOST": config("DB_HOST"),
+        "PORT": config("DB_PORT", cast=int),
     }
 }
 
@@ -110,11 +117,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # JWT SETTINGS
 SIMPLE_JWT = {
     # Increase Access Token to 24 hours (1 day)
-    "ACCESS_TOKEN_LIFETIME": timedelta(days=1), 
-    
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
+
     # Increase Refresh Token to 7 days
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
-    
+
     "ROTATE_REFRESH_TOKENS": False,
     "BLACKLIST_AFTER_ROTATION": False,
     "ALGORITHM": "HS256",
@@ -169,7 +176,7 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# Media files (uploads like images, docx, pdf — optional)
+# Media files (uploads like images, docx, pdf - optional)
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
@@ -197,9 +204,6 @@ SWAGGER_SETTINGS = {
     },
     "USE_SESSION_AUTH": False,
 }
-import logging
-import json
-import socket
 
 
 # ----------------------------------------------------
@@ -257,14 +261,14 @@ LOGGING = {
 # ---------------------------
 # CELERY CONFIGURATION
 # ---------------------------
-CELERY_BROKER_URL = "redis://redis:6379/0"
-CELERY_RESULT_BACKEND = "redis://redis:6379/0"
+CELERY_BROKER_URL = config("CELERY_BROKER_URL")
+CELERY_RESULT_BACKEND = config("CELERY_RESULT_BACKEND")
 
 CELERY_TIMEZONE = "Asia/Kolkata"
 CELERY_ENABLE_UTC = False
 
 
-
-RAZORPAY_KEY_ID = "rzp_test_RtNmiEOX0YojZG"
-RAZORPAY_KEY_SECRET = "eJfXq0ynpHh0PyhxKYQlNj5B"
-
+RAZORPAY_KEY_ID = config("RAZORPAY_KEY_ID")
+RAZORPAY_KEY_SECRET = config("RAZORPAY_KEY_SECRET")
+ANTHROPIC_API_KEY = config("ANTHROPIC_API_KEY", default="")
+GROQ_API_KEY = config("GROQ_API_KEY", default="")

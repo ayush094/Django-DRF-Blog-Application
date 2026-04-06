@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Audio Blog - Audio Hub</title>
+
+  <!-- Google Fonts - Roboto (Material Design) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Use a relative static path so the page works in Django and when opened directly for preview -->
+  <link rel="stylesheet" href="../../static/audio/css/audio-styles.css">
+</head>
+<body>
+  <div class="audio-shell">
+    <div class="audio-shell-glow audio-shell-glow-left"></div>
+    <div class="audio-shell-glow audio-shell-glow-right"></div>
+
+    <div class="audio-container">
+      <!-- Header -->
+      <header class="audio-header">
+        <div class="audio-header-copy">
+          <div class="audio-kicker">AI Audio Workspace</div>
+          <h1><span class="audio-header-icon">🎧</span> Smart Audio Blog</h1>
+          <p>Transform any article into a polished listening experience with adjustable voice, language, depth, and learning mode.</p>
+
+          <div class="audio-header-chips">
+            <span class="audio-chip"><span class="material-icons">graphic_eq</span> Studio-quality flow</span>
+            <span class="audio-chip"><span class="material-icons">translate</span> Multilingual output</span>
+            <span class="audio-chip"><span class="material-icons">school</span> Learning-first controls</span>
+          </div>
+        </div>
+
+        <div class="audio-hero-panel">
+          <div class="audio-hero-stat">
+            <span class="audio-hero-stat-value" id="hero-stat-modes">3</span>
+            <span class="audio-hero-stat-label">Playback modes</span>
+          </div>
+          <div class="audio-hero-stat">
+            <span class="audio-hero-stat-value" id="hero-stat-languages">3</span>
+            <span class="audio-hero-stat-label">Languages</span>
+          </div>
+          <div class="audio-hero-stat">
+            <span class="audio-hero-stat-value" id="hero-stat-learning">3</span>
+            <span class="audio-hero-stat-label">Learning levels</span>
+          </div>
+
+          <div class="audio-hero-note">
+            Build one article into explainers, summaries, and podcast-style listening in a single workspace.
+          </div>
+        </div>
+    </header>
+
+      <!-- Alert Messages Container -->
+      <div id="alerts-container"></div>
+
+      <!-- Blog Info -->
+      <div class="audio-card audio-surface-highlight" id="blog-info" style="display: none;">
+        <div class="audio-card-header">
+          <h2 class="audio-card-title">
+            <span class="material-icons">article</span>
+            <span id="blog-title">Blog Title</span>
+          </h2>
+          <span class="audio-status audio-status-ready" id="blog-status">Published</span>
+        </div>
+        <p id="blog-excerpt" class="audio-blog-excerpt"></p>
+      </div>
+
+      <!-- Main Content Grid -->
+      <div class="audio-layout">
+        <!-- Left Column: Generation & Player -->
+        <div class="main-column">
+          <!-- Audio Generation Section -->
+          <div class="audio-card audio-card-hero">
+            <div class="audio-card-header">
+              <div>
+                <div class="audio-section-kicker">Generation Studio</div>
+                <h2 class="audio-card-title">
+                  <span class="material-icons">psychedelic</span>
+                  Generate Audio
+                </h2>
+              </div>
+            </div>
+
+            <form id="audio-generate-form">
+              <div class="audio-guidance">
+                <div class="audio-guidance-item">
+                  <span class="material-icons">tune</span>
+                  <div>
+                    <strong>Choose the listening style</strong>
+                    <p>Pick how the article should sound before you generate the voice output.</p>
+                  </div>
+                </div>
+                <div class="audio-guidance-item">
+                  <span class="material-icons">rocket_launch</span>
+                  <div>
+                    <strong>Generate and review</strong>
+                    <p>Create the audio, then manage versions, playback preferences, and quiz questions below.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="audio-form-grid">
+                <div class="audio-form-group">
+                  <label class="audio-label" for="id_mode">Mode</label>
+                  <select class="audio-select" id="id_mode" name="mode" required>
+                    <option value="explain" selected>📚 Explain (Teacher Style)</option>
+                    <option value="conversation">🎙️ Conversation (Podcast Style)</option>
+                    <option value="summary">📋 Summary (Quick Overview)</option>
+                  </select>
+                  <p class="audio-field-help">Best for teaching, conversational narration, or fast recap listening.</p>
+                </div>
+
+                <div class="audio-form-group">
+                  <label class="audio-label" for="id_language">Language</label>
+                  <select class="audio-select" id="id_language" name="language" required>
+                    <option value="en" selected>English</option>
+                    <option value="hi">हिंदी (Hindi)</option>
+                    <option value="gu">ગુજરાતી (Gujarati)</option>
+                  </select>
+                  <p class="audio-field-help">Switch the spoken output language without changing the core workflow.</p>
+                </div>
+
+                <div class="audio-form-group">
+                  <label class="audio-label" for="id_understanding_level">Understanding Level</label>
+                  <select class="audio-select" id="id_understanding_level" name="understanding_level" required>
+                    <option value="beginner">🌱 Beginner - Simple explanations</option>
+                    <option value="intermediate" selected>🌿 Intermediate - Balanced</option>
+                    <option value="expert">🌳 Expert - Technical depth</option>
+                  </select>
+                  <p class="audio-field-help">Control how simple or technical the final explanation should be.</p>
+                </div>
+
+                <div class="audio-form-group">
+                  <label class="audio-label" for="id_mood">Voice Mood</label>
+                  <select class="audio-select" id="id_mood" name="mood" required>
+                    <option value="educational" selected>📖 Educational - Clear & structured</option>
+                    <option value="serious">💼 Serious - Professional tone</option>
+                    <option value="storytelling">📖 Storytelling - Narrative style</option>
+                  </select>
+                  <p class="audio-field-help">Set the speaking tone for the generated narration.</p>
+                </div>
+              </div>
+
+              <div class="audio-action-bar">
+                <button type="submit" class="audio-btn audio-btn-primary audio-btn-glow" id="generate-btn">
+                  <span class="material-icons">auto_awesome</span>
+                  Generate Audio
+                </button>
+
+                <div class="audio-inline-note">Tailor each version for different learners, tones, and listening habits.</div>
+              </div>
+
+              <div id="audio-status" class="audio-status-strip"></div>
+
+              <div id="audio-generation-progress" class="audio-generation-progress" style="display: none;">
+                <div class="audio-generation-bar"></div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Audio Player -->
+          <div class="audio-card" id="audio-player-container" style="display: none;">
+            <!-- Player will be dynamically inserted here -->
+          </div>
+
+          <!-- Audio List -->
+          <div class="audio-card" id="audio-list-section" style="display: none;">
+            <div class="audio-card-header">
+              <h2 class="audio-card-title">
+                <span class="material-icons">playlist_play</span>
+                Your Audio Versions
+              </h2>
+            </div>
+            <div id="audio-list-container"></div>
+          </div>
+
+          <!-- Questions Section -->
+          <div class="audio-card">
+            <div class="audio-card-header">
+              <div>
+                <div class="audio-section-kicker">Knowledge Check</div>
+                <h2 class="audio-card-title">
+                  <span class="material-icons">quiz</span>
+                  Comprehension Questions
+                </h2>
+              </div>
+            </div>
+
+            <div class="audio-toolbar">
+              <button class="audio-btn audio-btn-secondary" onclick="audioApp.generateQuestions()" id="generate-questions-btn">
+                <span class="material-icons">add</span>
+                Generate Questions
+              </button>
+            </div>
+
+            <div id="questions-container"></div>
+          </div>
+        </div>
+
+        <!-- Right Column: Preferences -->
+        <aside class="side-column">
+          <!-- User Preferences -->
+          <div class="audio-card" id="user-preferences" style="display: none;">
+            <div class="audio-card-header">
+              <div>
+                <div class="audio-section-kicker">Personalization</div>
+                <h2 class="audio-card-title">
+                  <span class="material-icons">settings</span>
+                  Audio Preferences
+                </h2>
+              </div>
+            </div>
+
+            <form id="preferences-form">
+              <div class="audio-side-note">
+                Save your default setup so every new audio version starts closer to your ideal listening experience.
+              </div>
+
+              <div class="audio-form-group">
+                <label class="audio-label" for="id_default_mode">Default Mode</label>
+                <select class="audio-select" id="id_default_mode" name="default_mode">
+                  <option value="explain">Explain</option>
+                  <option value="conversation">Conversation</option>
+                  <option value="summary">Summary</option>
+                </select>
+              </div>
+
+              <div class="audio-form-group">
+                <label class="audio-label" for="id_default_language">Default Language</label>
+                <select class="audio-select" id="id_default_language" name="default_language">
+                  <option value="en">English</option>
+                  <option value="hi">Hindi</option>
+                  <option value="gu">Gujarati</option>
+                </select>
+              </div>
+
+              <div class="audio-form-group">
+                <label class="audio-label" for="id_default_understanding_level">Default Level</label>
+                <select class="audio-select" id="id_default_understanding_level" name="default_understanding_level">
+                  <option value="beginner">Beginner</option>
+                  <option value="intermediate">Intermediate</option>
+                  <option value="expert">Expert</option>
+                </select>
+              </div>
+
+              <div class="audio-form-group">
+                <label class="audio-label" for="id_default_mood">Default Mood</label>
+                <select class="audio-select" id="id_default_mood" name="default_mood">
+                  <option value="educational">Educational</option>
+                  <option value="serious">Serious</option>
+                  <option value="storytelling">Storytelling</option>
+                </select>
+              </div>
+
+              <div class="audio-form-group">
+                <label class="audio-label" for="id_default_speed">Playback Speed</label>
+                <input type="range" class="audio-input" id="id_default_speed" name="default_speed" min="0.5" max="2" step="0.1" value="1">
+                <div class="audio-range-meta">
+                  <span>0.5x</span>
+                  <span id="speed-value">1.0x</span>
+                  <span>2.0x</span>
+                </div>
+              </div>
+
+              <div class="audio-form-group">
+                <label class="audio-label" for="id_default_volume">Default Volume</label>
+                <input type="range" class="audio-input" id="id_default_volume" name="default_volume" min="0" max="1" step="0.1" value="0.8">
+                <div class="audio-range-meta">
+                  <span>0%</span>
+                  <span id="volume-value">80%</span>
+                  <span>100%</span>
+                </div>
+              </div>
+
+              <div class="audio-toggle">
+                <span class="audio-toggle-label">Autoplay</span>
+                <label class="audio-switch">
+                  <input type="checkbox" id="id_autoplay" name="autoplay">
+                  <span class="audio-slider"></span>
+                </label>
+              </div>
+
+              <div class="audio-toggle">
+                <span class="audio-toggle-label">Text Highlight Sync</span>
+                <label class="audio-switch">
+                  <input type="checkbox" id="id_highlight_sync_enabled" name="highlight_sync_enabled" checked>
+                  <span class="audio-slider"></span>
+                </label>
+              </div>
+
+              <button type="submit" class="audio-btn audio-btn-primary audio-btn-block">
+                <span class="material-icons">save</span>
+                Save Preferences
+              </button>
+            </form>
+          </div>
+
+          <div class="audio-card audio-card-mini">
+            <div class="audio-card-header">
+              <div>
+                <div class="audio-section-kicker">Playback Tips</div>
+                <h2 class="audio-card-title">
+                  <span class="material-icons">headphones</span>
+                  Listening Tips
+                </h2>
+              </div>
+            </div>
+            <div class="audio-checklist">
+              <div class="audio-checklist-item"><span>1</span> Start with Explain mode for the clearest structure.</div>
+              <div class="audio-checklist-item"><span>2</span> Use Intermediate level for balanced detail and pace.</div>
+              <div class="audio-checklist-item"><span>3</span> Save your preferred defaults for faster generation next time.</div>
+            </div>
+          </div>
+
+          <div class="audio-card audio-card-mini">
+            <div class="audio-card-header">
+              <div>
+                <div class="audio-section-kicker">Workflow</div>
+                <h2 class="audio-card-title">
+                  <span class="material-icons">checklist</span>
+                  Quick Flow
+                </h2>
+              </div>
+            </div>
+            <div class="audio-checklist">
+              <div class="audio-checklist-item"><span>1</span> Choose mode, language, level, and mood.</div>
+              <div class="audio-checklist-item"><span>2</span> Generate a version and preview it in the player.</div>
+              <div class="audio-checklist-item"><span>3</span> Save preferences and generate questions for review.</div>
+            </div>
+          </div>
+
+          <!-- Quick Stats -->
+          <div class="audio-card audio-stats-card">
+            <div class="audio-card-header audio-stats-header">
+              <h3 class="audio-stats-title">
+                <span class="material-icons">trending_up</span>
+                Audio Stats
+              </h3>
+            </div>
+            <div class="audio-stats-grid">
+              <div class="audio-stats-box">
+                <div class="audio-stats-value" id="stat-total-time">--</div>
+                <div class="audio-stats-label">Total Time (min)</div>
+              </div>
+              <div class="audio-stats-box">
+                <div class="audio-stats-value" id="stat-versions">--</div>
+                <div class="audio-stats-label">Audio Versions</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden blog ID data -->
+  <div
+    id="blog-id"
+    data-blog-id="{{ blog_id|default:0 }}"
+    data-blog-title="{{ blog.title|default:''|escape }}"
+    data-blog-excerpt="{{ blog.content|default:''|truncatewords:50|escape }}"
+  ></div>
+
+  <!-- Audio App JavaScript -->
+  <script src="../../static/audio/js/audio-app.js"></script>
+
+  <script>
+    // Initialize blog data on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      const blogDataEl = document.getElementById('blog-id');
+
+      // Load blog info if available
+      try {
+        const blogTitle = document.getElementById('blog-title');
+        const blogExcerpt = document.getElementById('blog-excerpt');
+        const blogInfo = document.getElementById('blog-info');
+        const titleValue = blogDataEl?.dataset.blogTitle || '';
+        const excerptValue = blogDataEl?.dataset.blogExcerpt || '';
+        const hasRenderedData = titleValue && !titleValue.includes('{{') && !titleValue.includes('{%');
+
+        if (hasRenderedData) {
+          if (blogTitle) blogTitle.textContent = titleValue;
+          if (blogExcerpt) blogExcerpt.textContent = excerptValue;
+          if (blogInfo) blogInfo.style.display = 'block';
+        }
+      } catch (e) {
+        console.log('Blog data already set or not available');
+      }
+
+      // Update stats
+      setTimeout(() => {
+        try {
+          const audioVersions = document.querySelectorAll('#audio-list-container .audio-bookmark-item');
+          const statEl = document.getElementById('stat-versions');
+          if (statEl) statEl.textContent = audioVersions.length;
+        } catch (e) {
+          console.log('Stats update error:', e);
+        }
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
